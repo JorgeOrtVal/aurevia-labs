@@ -1,0 +1,437 @@
+/* ======================================================================
+   1. VARIABLES GLOBALES Y TEMAS
+   ====================================================================== */
+:root {
+    --bg-color: #050b14;
+    --text-main: #ffffff;
+    --text-muted: #8b9bb4;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --font-family: 'Outfit', sans-serif;
+}
+
+:root,
+:root.dark-theme {
+    --mouse-glow-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not(.dark-theme) {
+        --bg-color: #f8fafc;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --card-bg: rgba(0, 0, 0, 0.03);
+        --card-border: rgba(0, 0, 0, 0.06);
+        --app-values-color: rgba(0, 0, 0, 0.6);
+        --brand-logo-color: rgb(0, 119, 255);
+        --mouse-glow-color: rgba(0, 0, 0, 0.15);
+    }
+}
+
+:root.light-theme {
+    --bg-color: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --card-bg: rgba(0, 0, 0, 0.03);
+    --card-border: rgba(0, 0, 0, 0.06);
+    --app-values-color: rgba(0, 0, 0, 0.6);
+    --brand-logo-color: rgb(0, 119, 255);
+    --mouse-glow-color: rgba(0, 0, 0, 0.15);
+}
+
+:root.dark-theme {
+    --bg-color: #050b14;
+    --text-main: #ffffff;
+    --text-muted: #8b9bb4;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --app-values-color: rgba(255, 255, 255, 0.8);
+    --brand-logo-color: rgba(74, 145, 226, 0.8);
+}
+
+/* INTERRUPTOR DE TEMA */
+.theme-toggle {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-main);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: rgba(100, 100, 100, 0.1);
+}
+
+/* ======================================================================
+   2. RESET Y ESTILOS BASE
+   ====================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ======================================================================
+   3. FONDOS ANIMADOS
+   ====================================================================== */
+.background-glow {
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(74, 145, 226, 0.13) 0%, transparent 70%);
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.background-glow.glow-2 {
+    top: auto;
+    bottom: -20%;
+    left: auto;
+    right: -10%;
+    background: radial-gradient(circle, rgba(141, 46, 204, 0.13) 0%, transparent 70%);
+}
+
+/* ======================================================================
+   4. ESTRUCTURA PRINCIPAL Y CABECERA
+   ====================================================================== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* LOGO Y MARCA */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    width: auto;
+    height: auto;
+    position: static;
+    overflow: visible;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+.brand-logo {
+    width: 160px;
+    height: auto;
+    filter: drop-shadow(0 0 20px var(--brand-logo-color));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.brand-logo:hover {
+    filter: drop-shadow(1px 1px 40px var(--brand-logo-color));
+    transform: scale(1.05);
+}
+
+.brand-text {
+    text-align: left;
+}
+
+.brand-text h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.tagline {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* CONTENIDO DE LA CABECERA */
+.hero-content h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+/* ======================================================================
+   5. CUADRÍCULA DE APLICACIONES
+   ====================================================================== */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+/* TARJETA DE APLICACIÓN */
+.app-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* EFECTO HOVER Y LINTERNA DEL RATÓN */
+.app-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--mouse-glow-color) 0%, transparent 50%) !important;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.app-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 40px var(--app-color-1, transparent);
+}
+
+.app-card:hover::before {
+    opacity: 1;
+}
+
+/* CONTENIDO DE LA TARJETA */
+.app-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.app-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ICONO DE LA APLICACIÓN */
+.app-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--app-color-1), var(--app-color-2));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.app-card:hover .app-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* VALORES DE LA APLICACIÓN (Etiquetas inferiores) */
+.app-values {
+    display: flex;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 300;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.app-values span {
+    color: var(--app-values-color);
+}
+
+/* ======================================================================
+   6. BANNER ECOSISTEMA (Mockup Móvil)
+   ====================================================================== */
+.ecosystem-banner {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 1px solid var(--card-border);
+    border-radius: 30px;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-text h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    max-width: 400px;
+}
+
+.banner-text p {
+    color: var(--text-muted);
+}
+
+/* MOCKUP DEL TELÉFONO */
+.phone-mockup {
+    width: 280px;
+    height: 580px;
+    background: #000;
+    border-radius: 40px;
+    border: 8px solid #333;
+    position: absolute;
+    right: 10%;
+    top: -50px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transform: rotate(-5deg);
+    transition: transform 0.5s ease;
+}
+
+.ecosystem-banner:hover .phone-mockup {
+    transform: rotate(0deg) translateY(-20px);
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 32px;
+    background: #0a0e17;
+    overflow: hidden;
+    padding: 3rem 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* CUADRÍCULA MINI (Dentro del teléfono) */
+.app-grid-mini {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    width: 100%;
+}
+
+.mini-app {
+    aspect-ratio: 1;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* ======================================================================
+   7. FOOTER
+   ====================================================================== */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    border-top: 1px solid var(--card-border);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ======================================================================
+   8. UTILIDADES Y SPRITES (Legado)
+   ====================================================================== */
+.sprite-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1485% !important;
+    max-width: none !important;
+    height: auto !important;
+    transform: translate(var(--bg-x), var(--bg-y)) scaleY(1) !important;
+    pointer-events: none !important;
+}
+
+.logo-sprite {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 200%;
+    max-width: none;
+    height: auto;
+    transform: translate(var(--bg-x), var(--bg-y)) scaleY(0.90);
+    pointer-events: none;
+}
+
+/* ======================================================================
+   9. DISEÑO RESPONSIVO (Móviles y Tablets)
+   ====================================================================== */
+@media (max-width: 900px) {
+    .ecosystem-banner {
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .phone-mockup {
+        position: relative;
+        right: 0;
+        top: 20px;
+        transform: rotate(0);
+    }
+}
+
+@media (max-width: 600px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        text-align: center;
+    }
+}
