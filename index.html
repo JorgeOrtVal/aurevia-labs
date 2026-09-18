@@ -1,0 +1,272 @@
+<!-- MAIN PAGE -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- TITULO DEL MAIN PAGE -->
+    <title>Aurevia Labs | Ecosistema</title>
+
+    <!-- CODIFICACIÓN Y OTROS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FUENTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- FONDO Y MAIN PAGE -->
+    <div class="background-glow"></div>
+    <div class="background-glow glow-2"></div>
+    <div class="container">
+
+        <!-- BOTÓN TEMA -->
+        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+            <i class="fa-solid fa-sun"></i>
+        </button>
+
+        <!-- CABECERA -->
+        <header class="hero">
+            <div class="brand">
+                <div class="logo-container">
+                    <img src="assets/logo.PNG" class="brand-logo" alt="Aurevia Labs">
+                </div>
+
+                <div class="brand-text">
+                    <h1>Aurevia Labs</h1>
+                    <p class="tagline">Ideas de hoy. Un futuro más simple.</p>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <h2>Tecnología que mejora tu vida.</h2>
+                <p>10 apps. Un mismo propósito.</p>
+            </div>
+        </header>
+
+        <!-- MAIN -->
+        <main class="apps-grid">
+            <!-- TARJETA 1: DOCORA -->
+            <a href="docora/docora.html" class="not-link">
+                <article class="app-card" style="--app-color-1: #4A90E2; --app-color-2: #0033A0;">
+                    <div class="app-header">
+                        <h3>Docora</h3>
+                        <p>Tu burocracia. Explicada.</p>
+                    </div>
+
+                    <div class="app-icon">
+                        <img src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -20%; --bg-y: -34%;">
+                    </div>
+
+                    <div class="app-values">
+                        <span>Claridad</span>&bull;<span>Seguridad</span>&bull;<span>Tranquilidad</span>
+                    </div>
+                </article>
+            </a>
+
+            <!-- TARJETA 2: FINORA -->
+            <article class="app-card" style="--app-color-1: #2ECC71; --app-color-2: #007934;">
+                <div class="app-header">
+                    <h3>Finora</h3>
+                    <p>Tus finanzas, más claras.</p>
+                </div>
+
+                <div class="app-icon">
+                    <img src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -44.9%; --bg-y: -33.5%;">
+                </div>
+
+                <div class="app-values">
+                    <span>Control</span>&bull;<span>Crecimiento</span>&bull;<span>Estabilidad</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 3: OFICIO -->
+            <article class="app-card" style="--app-color-1: #FF8C00; --app-color-2: #001F3F;">
+                <div class="app-header">
+                    <h3>Oficio</h3>
+                    <p>Tu negocio. Sin papeleo.</p>
+                </div>
+
+                <div class="app-icon">
+                    <img src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -70.2%; --bg-y: -33.5%;">
+                </div>
+
+                <div class="app-values">
+                    <span>Trabajo</span>&bull;<span>Simplicidad</span>&bull;<span>Confianza</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 4: NIDO -->
+            <article class="app-card" style="--app-color-1: #FF6B6B; --app-color-2: #4A90E2;">
+                <div class="app-header">
+                    <h3>Nido</h3>
+                    <p>Todo lo importante, en familia.</p>
+                </div>
+
+                <div class="app-icon">
+                    <img src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -80%; --bg-y: -34%;">
+                </div>
+
+                <div class="app-values">
+                    <span>Hogar</span>&bull;<span>Organización</span>&bull;<span>Cercanía</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 5: NEXTROLE -->
+            <article class="app-card" style="--app-color-1: #9B59B6; --app-color-2: #2C3E50;">
+                <div class="app-header">
+                    <h3>NextRole</h3>
+                    <p>Tu siguiente paso.</p>
+                </div>
+
+                <div class="app-icon">
+                    <img src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -4.875%; --bg-y: -56.9%;">
+                </div>
+
+                <div class="app-values">
+                    <span>Progreso</span>&bull;<span>Oportunidad</span>&bull;<span>Futuro</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 6: SHIFTPILOT -->
+            <article class="app-card" style="--app-color-1: #F1C40F; --app-color-2: #2C3E50;">
+                <div class="app-header">
+                    <h3>ShiftPilot</h3>
+                    <p>Tus turnos, tu vida.</p>
+                </div>
+
+                <div class="app-icon">
+                    <img src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -29.91%; --bg-y: -57%;">
+                </div>
+
+                <div class="app-values">
+                    <span>Control</span>&bull;<span>Equilibrio</span>&bull;<span>Libertad</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 7: LINGORA -->
+            <article class="app-card" style="--app-color-1: #59b3b6; --app-color-2: #3498DB;">
+                <div class="app-header">
+                    <h3>Lingora</h3>
+                    <p>Habla. Mejora. Sin límites.</p>
+                </div>
+
+                <div class="app-icon">
+                    <img src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -55.1%; --bg-y: -57.19%;">
+                </div>
+
+                <div class="app-values">
+                    <span>Aprendizaje</span>&bull;<span>Conversación</span>&bull;<span>Conexión</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 8: PICKORA -->
+            <article class="app-card" style="--app-color-1: #1ABC9C; --app-color-2: #16A085;">
+                <div class="app-header">
+                    <h3>Pickora</h3>
+                    <p>Compra mejor. Vive mejor.</p>
+                </div>
+
+                <div class="app-icon">
+                    <img src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -87.75%; --bg-y: -57.19%;">
+                </div>
+
+                <div class="app-values">
+                    <span>Ahorro</span>&bull;<span>Inteligencia</span>&bull;<span>Confianza</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 9: MEDORA -->
+            <article class="app-card" style="--app-color-1: #5DADE2; --app-color-2: #2874A6;">
+                <div class="app-header">
+                    <h3>Medora</h3>
+                    <p>Tu salud, siempre contigo.</p>
+                </div>
+
+                <div class="app-icon">
+                    <img src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -4.87%; --bg-y: -80.6%;">
+                </div>
+
+                <div class="app-values">
+                    <span>Salud</span>&bull;<span>Seguridad</span>&bull;<span>Bienestar</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 10: FIXORA -->
+            <article class="app-card" style="--app-color-1: #E67E22; --app-color-2: #D35400;">
+                <div class="app-header">
+                    <h3>Fixora</h3>
+                    <p>Foto. Diagnóstico. Solución.</p>
+                </div>
+
+                <div class="app-icon">
+                    <img src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -29.8%; --bg-y: -80.6%;">
+                </div>
+
+                <div class="app-values">
+                    <span>Solución</span>&bull;<span>Rapidez</span>&bull;<span>Confianza</span>
+                </div>
+            </article>
+        </main>
+
+        <!-- BANNER -->
+        <div class="ecosystem-banner">
+            <div class="banner-text">
+                <h2>Un ecosistema de apps para una vida más simple.</h2>
+                <p>Tecnología al servicio de las personas.</p>
+            </div>
+
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="app-grid-mini">
+                        <div class="mini-app" style="background: linear-gradient(135deg, #4A90E2, #0033A0)"><img
+                                src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -20%; --bg-y: -34%;">
+                        </div>
+                        <div class="mini-app" style="background: linear-gradient(135deg, #2ECC71, #007934)"><img
+                                src="assets/aurevia-full.png" class="sprite-img"
+                                style="--bg-x: -44.9%; --bg-y: -33.5%;"></div>
+                        <div class="mini-app" style="background: linear-gradient(135deg, #FF8C00, #001F3F)"><img
+                                src="assets/aurevia-full.png" class="sprite-img"
+                                style="--bg-x: -70.2%; --bg-y: -33.5%;"></div>
+                        <div class="mini-app" style="background: linear-gradient(135deg, #FF6B6B, #4A90E2)"><img
+                                src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -80%; --bg-y: -34%;">
+                        </div>
+                        <div class="mini-app" style="background: linear-gradient(135deg, #9B59B6, #2C3E50)"><img
+                                src="assets/aurevia-full.png" class="sprite-img"
+                                style="--bg-x: -4.875%; --bg-y: -56.9%;"></div>
+                        <div class="mini-app" style="background: linear-gradient(135deg, #F1C40F, #2C3E50)"><img
+                                src="assets/aurevia-full.png" class="sprite-img" style="--bg-x: -29.91%; --bg-y: -57%;">
+                        </div>
+                        <div class="mini-app" style="background: linear-gradient(135deg, #8E44AD, #3498DB)"><img
+                                src="assets/aurevia-full.png" class="sprite-img"
+                                style="--bg-x: -55.1%; --bg-y: -57.19%;"></div>
+                        <div class="mini-app" style="background: linear-gradient(135deg, #1ABC9C, #16A085)"><img
+                                src="assets/aurevia-full.png" class="sprite-img"
+                                style="--bg-x: -87.75%; --bg-y: -57.19%;"></div>
+                        <div class="mini-app" style="background: linear-gradient(135deg, #5DADE2, #2874A6)"><img
+                                src="assets/aurevia-full.png" class="sprite-img"
+                                style="--bg-x: -4.87%; --bg-y: -80.6%;"></div>
+                        <div class="mini-app" style="background: linear-gradient(135deg, #E67E22, #D35400)"><img
+                                src="assets/aurevia-full.png" class="sprite-img"
+                                style="--bg-x: -29.8%; --bg-y: -80.6%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-left">Aurevia Labs | 10 apps. Infinitas posibilidades.</div>
+            <div class="footer-right">Más personas. Vidas más simples. Un futuro mejor.</div>
+        </footer>
+    </div>
+
+    <!-- SCRIPT JS -->
+    <script src="index.js"></script>
+</body>
+
+</html>

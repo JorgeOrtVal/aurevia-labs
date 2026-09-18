@@ -1,0 +1,247 @@
+/* ======================================================================
+   1. VARIABLES GLOBALES Y TEMAS
+   ====================================================================== */
+:root {
+    --bg-color: #050b14;
+    --text-main: #ffffff;
+    --text-muted: #8b9bb4;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --font-family: 'Outfit', sans-serif;
+}
+
+:root,
+:root.dark-theme {
+    --mouse-glow-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not(.dark-theme) {
+        --bg-color: #eeeeee;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --card-bg: rgba(0, 0, 0, 0.03);
+        --card-border: rgba(0, 0, 0, 0.06);
+        --app-values-color: rgba(0, 0, 0, 0.6);
+        --brand-logo-color: rgb(0, 119, 255);
+        --mouse-glow-color: rgba(0, 0, 0, 0.15);
+    }
+}
+
+:root.light-theme {
+    --bg-color: #eeeeee;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --card-bg: rgba(0, 0, 0, 0.03);
+    --card-border: rgba(0, 0, 0, 0.06);
+    --app-values-color: rgba(0, 0, 0, 0.6);
+    --brand-logo-color: rgb(0, 119, 255);
+    --mouse-glow-color: rgba(0, 0, 0, 0.15);
+}
+
+:root.dark-theme {
+    --bg-color: #050b14;
+    --text-main: #ffffff;
+    --text-muted: #8b9bb4;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --app-values-color: rgba(255, 255, 255, 0.8);
+    --brand-logo-color: rgba(74, 145, 226, 0.8);
+}
+
+/* INTERRUPTOR DE TEMA */
+.theme-toggle {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-main);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--card-border);
+}
+
+.not-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ======================================================================
+   2. RESET Y ESTILOS BASE
+   ====================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ======================================================================
+   3. ESTRUCTURA PRINCIPAL Y CABECERA
+   ====================================================================== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.hero-content h2 {
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    white-space: nowrap;
+    font-size: 45px;
+}
+
+/* Caja que contiene las palabras que van a rotar */
+.caja-rotatoria {
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    width: 200px;
+    perspective: 55px;
+}
+
+/* El elemento que realmente gira */
+.palabras {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: rotarCaja 9s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+    font-size: 1.5em;
+    justify-content: flex-start;
+}
+
+/* Estilo común para cada cara/palabra */
+.palabra {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Posicionamiento en 3D de cada palabra (caras de la caja) */
+/* El valor de translateZ debe ser la mitad de la altura de la caja (50px / 2 = 25px) */
+.p1 {
+    color: #ff4757;
+    transform: rotateX(0deg) translateZ(25px);
+    text-shadow: 0 0 15px #ff4757;
+}
+
+.p2 {
+    color: #2ed573;
+    transform: rotateX(90deg) translateZ(25px);
+    text-shadow: 0 0 15px #2ed573;
+}
+
+.p3 {
+    color: #1e90ff;
+    transform: rotateX(180deg) translateZ(25px);
+    text-shadow: 0 0 15px #1e90ff;
+}
+
+.p4 {
+    color: #ffa502;
+    transform: rotateX(270deg) translateZ(25px);
+    text-shadow: 0 0 15px #ffa502;
+}
+
+/* Animación de la rotación (4 caras = 4 paradas) */
+@keyframes rotarCaja {
+
+    0%,
+    20% {
+        transform: rotateX(0deg);
+    }
+
+    25%,
+    45% {
+        transform: rotateX(-90deg);
+    }
+
+    50%,
+    70% {
+        transform: rotateX(-180deg);
+    }
+
+    75%,
+    95% {
+        transform: rotateX(-270deg);
+    }
+
+    100% {
+        transform: rotateX(-360deg);
+    }
+}
+
+.logo-container {
+    top: 25px;
+    right: 15px;
+    justify-content: center;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: none;
+    overflow: visible;
+    border: none;
+    background: transparent;
+    margin-bottom: 0;
+    width: auto;
+    height: auto;
+}
+
+.brand-logo {
+    width: 100px;
+    height: auto;
+    filter: drop-shadow(0 0 20px var(--brand-logo-color));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.brand-logo:hover {
+    filter: drop-shadow(1px 1px 40px var(--brand-logo-color));
+    transform: scale(1.05);
+}
